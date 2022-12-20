@@ -1,0 +1,12 @@
+Create Rectangle R with corner at (200.0 , 200.0), width 50.0 and height 100.0, Color: (255.0, 0.0, 0.0)
+Create Oval C with center at (440.0 , 70.0), radius 120.0 and 60.0, Color: (0.0, 0.0, 255.0)
+
+R appears at time t=0 and disappears at time t=100
+C appears at time t=0 and disappears at time t=80
+
+R moves from (200.0, 200.0) to (300.0, 300.0) from time t=10 to t=50
+C moves from (440.0, 70.0) to (440.0, 250.0) from time t=20 to t=50
+C moves from (440.0, 250.0) to (440.0, 370.0) from time t=50 to t=70
+R changes width from 50.0 to 25.0 changes height from 100.0 to 100.0 from time t=51 to t=70
+C changes color from (0, 170, 85) to (0, 255, 0) from time t=70 to t=80
+R moves from (300.0, 300.0) to (200.0, 200.0) from time t=70 to t=100

@@ -1,0 +1,83 @@
+{\rtf1\ansi\ansicpg936\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red34\green45\blue53;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c17647\c23137\c27059;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12440\viewh12260\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 Easy Animator\
+\
+This is an application based on the Model-View-Controller architecture that could help create 2D animations from shapes and their animations.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 Model\
+\
+The interface represents what the animator model should do, such as adding shapes and animations. The animations added shall be in the order of the start time. It also has getter to get all shapes and all animations in list, respectively. \
+\
+ModelImpl\
+\
+This class represents the implementation of the model operations. All shapes and animations are stored in the list. The purpose of this class is to add shapes and animations into the model and stored them in order. \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 \
+To support the model, there are sub-packages including: shape, animation, and util.\
+\
+Shape\
+\
+	Shape: The interface represents operations applicable to shapes. There are getters for retrieving the 		key information of a shape such as name, type, width/X radius, height/Y radius, position, color, 		appear and disappear time. Setters are also available to change those attributes of shapes. \
+	AbstractShape: The class represents the implementation of the shape interface. \
+	Rectangle: The class represents the Rectangle shape which extends the AbstractShape.\
+	Oval: The class represents the Oval shape which extends the AbstractShape.\
+	ShapeType: enum type of shapes, in this case, there are only rectangle and oval.\
+	Point2D: This class represents the point/position in a 2D format, (x, y).\
+	ColorRGB: This class represents the color in three dimensions, (Red, Green, Blue).\
+\
+Animation\
+	\
+	Animation: The interface represents operations applicable to animations, mainly getters to return the 		shape name, animation form, start and end time. It can also change the shape at a specific 		time.\
+	AbstractAnimation: The class represents the implementation of the animation interface. Moreover, it 		has a method to return the middle status of the animation. \
+	Moving: The class represents the moving animation. \
+	Scaling: The class represents the scaling animation.\
+	ChangingColor: The class represents the changing color animation. \
+	AnimationForm: enum type of animations, in this case, there are only three types.\
+\
+Util\
+	\
+	AnimationBuilder: The interface represents the necessary operations to initialize the animation in 		a bounded area, declare new shape to add to the document, and transformation to add the 		motion to the document.\
+	AnimationBuilderImpl: This class represents the implementation of the animation builder.\
+	AnimationReader: This class represents the helper to read animation data and construct an animation.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+Controller\
+\
+The interface represents the controller of the animator. It has the method to run the animator.\
+\
+ControllerImp\
+\
+This class represents the implementation of the controller interface. Using its constructor, we can create \
+a controller that can invoke different kinds of view. The method play can run the program. \
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+View\
+\
+	View: This interface represents operations can be used on all kinds of views, such as getting the view \
+		type and loading the view. \
+	SvgView: This class represents the SVG view which will take the model as input and \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 produce a textual 		description of the animation that is compliant with the popular SVG file format.\cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 	TextView: This class represents the text view that returns textual output in a specific format.\
+	GUIPanel: This class represents the GUI panel for the visual view. \
+	VisualView: This class represents the visual view. The \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 animations will be played inside a window, 		effectively reproducing the sample animations shown in the images in the model section.
+\f1\fs32 \cf4 \
+
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 	ViewForm: enum type of views. }
